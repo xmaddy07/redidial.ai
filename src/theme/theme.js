@@ -1,0 +1,63 @@
+export const lightTheme = {
+  primary: "#3B82F6",
+  accent: "#0D0F62",
+  dark: "#F9FAFB",       // Background for light mode
+  white: "#FFFFFF",
+  text: "#1F2937",       // High contrast text
+  gray: "#9CA3AF",
+  cardBg: "#FFFFFF",
+  inputBg: "#F3F4F6",
+  border: "#E5E7EB",
+  orange: "#F97316",
+  danger: "#EF4444",
+  success: "#10B981",
+  black: "#000000",
+  light: "#F3F4F6",
+  gr: "#85E288",
+  red: "#EF4444",
+  green: "#10B981",
+  active: "#85E288",
+  inactive: "#FFC107",
+  // Drawer & Sidebar specific
+  sidebarBg: "#FFFFFF",
+  sidebarText: "#1F2937",
+  sidebarActiveBg: "#E5E7EB",
+  headerBg: "#FFFFFF",
+  headerText: "#1F2937",
+  appBg: "#F9FAFB",
+  appText: "#1F2937",
+  surfaceBg: "#FFFFFF",
+  surfaceBorder: "#E5E7EB",
+};
+
+export const darkTheme = {
+  primary: "#3B82F6",
+  accent: "#3B82F6",
+  dark: "#15181F",       // Background for dark mode (default dark)
+  white: "#FFFFFF",
+  text: "#F9FAFB",       // Light text on dark bg
+  gray: "#6B7280",
+  cardBg: "#1E2430",
+  inputBg: "#223144",
+  border: "#2B3442",
+  orange: "#F97316",
+  danger: "#EF4444",
+  success: "#10B981",
+  black: "#000000",
+  light: "#1E293B",
+  gr: "#85E288",
+  red: "#EF4444",
+  green: "#10B981",
+  active: "#85E288",
+  inactive: "#FFC107",
+  // Drawer & Sidebar specific
+  sidebarBg: "#15181F",
+  sidebarText: "#E2E8F0",
+  sidebarActiveBg: "#1E2430",
+  headerBg: "#15181F",
+  headerText: "#F8FAFC",
+  appBg: "#15181F",
+  appText: "#F8FAFC",
+  surfaceBg: "#1E2430",
+  surfaceBorder: "#334155",
+};

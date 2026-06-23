@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "153822930179",
+    "project_id": "redidial-15098",
+    "storage_bucket": "redidial-15098.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:153822930179:android:f90583128e56c0dd02b536",
+        "android_client_info": {
+          "package_name": "com.redidial"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCgzuR_vrw1F-00kL0ze-vac-3DPNLudcA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

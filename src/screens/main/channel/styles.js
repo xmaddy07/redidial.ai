@@ -1,0 +1,420 @@
+import { StyleSheet } from 'react-native';
+import { fonts } from '../../../constant';
+import {
+  widthPercentageToDP as wp,
+  heightPercentageToDP as hp,
+} from '../../../theme/layout';
+import { createSettingsScreenStyles, cardShadow } from '../shared/settingsScreenTheme';
+
+export const getStyles = (colors, isDark = false, options = {}) =>
+  StyleSheet.create({
+    ...createSettingsScreenStyles(colors, isDark, options),
+    scrollContent: {
+      paddingHorizontal: wp(4),
+      paddingTop: hp(1),
+      paddingBottom: hp(4),
+    },
+    newChannelBtn: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 14,
+      minHeight: hp(4.6),
+      paddingVertical: hp(1.2),
+      borderRadius: 12,
+      gap: 6,
+      backgroundColor: colors.primary,
+    },
+    newChannelBtnPressed: {
+      opacity: 0.92,
+    },
+    newChannelBtnText: {
+      color: colors.white,
+      fontFamily: fonts.semibold,
+      fontSize: 12,
+      letterSpacing: 0.2,
+      flexShrink: 0,
+      includeFontPadding: false,
+    },
+
+    card: {
+      backgroundColor: colors.cardBg,
+      borderRadius: 16,
+      padding: wp(4),
+      marginBottom: hp(1.5),
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.surfaceBorder || colors.border,
+      ...cardShadow(isDark),
+    },
+    cardHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: hp(1.4),
+    },
+    phoneRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      flex: 1,
+    },
+    phoneIconWrap: {
+      width: 40,
+      height: 40,
+      borderRadius: 12,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight: wp(3),
+    },
+    phoneInfo: {
+      flex: 1,
+    },
+    phoneLabel: {
+      color: colors.gray,
+      fontSize: 10,
+      fontFamily: fonts.medium,
+      textTransform: 'uppercase',
+      letterSpacing: 0.7,
+      marginBottom: 2,
+    },
+    phoneText: {
+      color: colors.appText || colors.text,
+      fontFamily: fonts.semibold,
+      fontSize: 15,
+      letterSpacing: 0.2,
+    },
+    headerActions: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+    },
+    activeBadge: {
+      paddingHorizontal: 10,
+      paddingVertical: 4,
+      borderRadius: 20,
+      backgroundColor: isDark ? `${colors.success}22` : `${colors.success}14`,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: `${colors.success}35`,
+    },
+    activeBadgeText: {
+      color: colors.success,
+      fontFamily: fonts.semibold,
+      fontSize: 10,
+      textTransform: 'uppercase',
+      letterSpacing: 0.4,
+    },
+    addUserBtn: {
+      width: 34,
+      height: 34,
+      borderRadius: 10,
+      alignItems: 'center',
+      justifyContent: 'center',
+    },
+
+    metaChips: {
+      flexDirection: 'row',
+      flexWrap: 'wrap',
+      gap: 8,
+      marginBottom: hp(1.6),
+    },
+    metaChip: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 6,
+      backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : colors.inputBg,
+      paddingHorizontal: 10,
+      paddingVertical: 6,
+      borderRadius: 10,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.surfaceBorder || colors.border,
+    },
+    metaChipText: {
+      color: colors.gray,
+      fontFamily: fonts.regular,
+      fontSize: 11,
+    },
+
+    divider: {
+      height: StyleSheet.hairlineWidth,
+      backgroundColor: colors.surfaceBorder || colors.border,
+      marginBottom: hp(1.4),
+    },
+
+    linkedHeader: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: hp(1),
+    },
+    linkedUsers: {
+      color: colors.appText || colors.text,
+      fontFamily: fonts.semibold,
+      fontSize: 13,
+      letterSpacing: 0.1,
+    },
+    userCount: {
+      color: colors.gray,
+      fontFamily: fonts.regular,
+      fontSize: 12,
+    },
+
+    userRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      paddingVertical: hp(0.8),
+    },
+    userAvatar: {
+      width: 36,
+      height: 36,
+      borderRadius: 12,
+      alignItems: 'center',
+      justifyContent: 'center',
+      marginRight: wp(2.5),
+    },
+    userInitials: {
+      color: colors.white,
+      fontFamily: fonts.bold,
+      fontSize: 12,
+    },
+    userInfo: {
+      flex: 1,
+    },
+    userName: {
+      color: colors.appText || colors.text,
+      fontFamily: fonts.medium,
+      fontSize: 13,
+    },
+    userEmail: {
+      color: colors.gray,
+      fontFamily: fonts.regular,
+      fontSize: 11,
+      marginTop: 1,
+    },
+
+    stateRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+      paddingVertical: hp(1),
+    },
+    stateText: {
+      color: colors.gray,
+      fontFamily: fonts.regular,
+      fontSize: 13,
+    },
+    stateTextError: {
+      color: colors.danger,
+    },
+
+    emptyUsers: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 10,
+      paddingVertical: hp(1.2),
+      paddingHorizontal: wp(3),
+      backgroundColor: isDark ? 'rgba(255,255,255,0.04)' : colors.inputBg,
+      borderRadius: 12,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.surfaceBorder || colors.border,
+      borderStyle: 'dashed',
+    },
+    emptyUsersText: {
+      color: colors.gray,
+      fontFamily: fonts.regular,
+      fontSize: 12,
+      flex: 1,
+    },
+
+    footerRow: {
+      marginTop: hp(1.6),
+      paddingTop: hp(1.4),
+      borderTopWidth: StyleSheet.hairlineWidth,
+      borderTopColor: colors.surfaceBorder || colors.border,
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      gap: 8,
+      flexWrap: 'wrap',
+    },
+    footerActions: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 8,
+      flex: 1,
+      flexWrap: 'wrap',
+    },
+    footerPill: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 5,
+      paddingHorizontal: 10,
+      paddingVertical: 7,
+      borderRadius: 10,
+      backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : colors.inputBg,
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.surfaceBorder || colors.border,
+    },
+    footerPillPressed: {
+      backgroundColor: isDark ? `${colors.primary}14` : `${colors.primary}08`,
+    },
+    footerText: {
+      color: colors.appText || colors.text,
+      fontFamily: fonts.medium,
+      fontSize: 11,
+    },
+    ivrBtn: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'center',
+      paddingHorizontal: 12,
+      minHeight: hp(4),
+      paddingVertical: 8,
+      borderRadius: 10,
+      gap: 5,
+      backgroundColor: colors.primary,
+      flexShrink: 0,
+    },
+    ivrBtnPressed: {
+      opacity: 0.92,
+    },
+    ivrBtnText: {
+      color: colors.white,
+      fontFamily: fonts.semibold,
+      fontSize: 11,
+      letterSpacing: 0.2,
+      flexShrink: 0,
+      includeFontPadding: false,
+    },
+
+    emptyState: {
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: colors.cardBg,
+      borderRadius: 16,
+      paddingVertical: hp(4),
+      paddingHorizontal: wp(8),
+      borderWidth: StyleSheet.hairlineWidth,
+      borderColor: colors.surfaceBorder || colors.border,
+      borderStyle: 'dashed',
+    },
+    emptyIcon: {
+      width: 52,
+      height: 52,
+      borderRadius: 26,
+      alignItems: 'center',
+      justifyContent: 'center',
+      backgroundColor: isDark ? 'rgba(255,255,255,0.05)' : colors.inputBg,
+      marginBottom: hp(1.4),
+    },
+    emptyTitle: {
+      color: colors.appText || colors.text,
+      fontFamily: fonts.semibold,
+      fontSize: 15,
+      marginBottom: 6,
+    },
+    emptyHint: {
+      color: colors.gray,
+      fontFamily: fonts.regular,
+      fontSize: 13,
+      textAlign: 'center',
+      lineHeight: 19,
+      marginBottom: hp(2),
+    },
+
+    modalOverlay: {
+      flex: 1,
+      backgroundColor: 'rgba(0,0,0,0.6)',
+      justifyContent: 'center',
+      paddingHorizontal: wp(6),
+    },
+    modalCard: {
+      backgroundColor: colors.cardBg,
+      borderRadius: 12,
+      padding: 14,
+      maxHeight: hp(60),
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
+    input: {
+      backgroundColor: colors.inputBg,
+      borderRadius: 8,
+      paddingHorizontal: 12,
+      paddingVertical: 10,
+      color: colors.text,
+      marginBottom: 12,
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
+    btnRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    cancelBtn: {
+      backgroundColor: colors.inputBg,
+      paddingVertical: 10,
+      paddingHorizontal: 16,
+      borderRadius: 8,
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
+    cancelTxt: {
+      color: colors.text,
+      fontFamily: fonts.medium,
+    },
+    modalTitleRow: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      marginBottom: 12,
+    },
+    modalTitle: {
+      color: colors.text,
+      fontFamily: fonts.semibold,
+      fontSize: 16,
+    },
+    closeHit: {
+      padding: 6,
+    },
+    separator: {
+      height: 1,
+      backgroundColor: colors.border,
+    },
+    userItem: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingVertical: 10,
+    },
+    userAvatarModal: {
+      width: wp(8),
+      height: wp(8),
+      borderRadius: wp(4),
+      marginRight: wp(3),
+    },
+    userInfoModal: {
+      flex: 1,
+      marginLeft: wp(2),
+    },
+    userNameModal: {
+      color: colors.text,
+      fontFamily: fonts.medium,
+    },
+    userEmailModal: {
+      color: colors.gray,
+      fontSize: 12,
+      marginTop: 2,
+    },
+    unlinkBtn: {
+      backgroundColor: colors.element1 || colors.primary,
+      paddingVertical: 6,
+      paddingHorizontal: 12,
+      borderRadius: 8,
+    },
+    unlinkTxt: {
+      color: colors.white,
+      fontFamily: fonts.semibold,
+      fontSize: 12,
+    },
+  });
+
+export default getStyles;

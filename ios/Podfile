@@ -1,0 +1,53 @@
+# Resolve react_native_pods.rb with node to allow for hoisting
+require Pod::Executable.execute_command('node', [
+  '-p',
+  'require.resolve("react-native/scripts/react_native_pods.rb", { paths: [process.argv[1]] })',
+  __dir__
+]).strip
+
+platform :ios, min_ios_version_supported
+prepare_react_native_project!
+
+## Modular headers: apply narrowly to GoogleUtilities (needed by FirebaseCoreInternal)
+## Avoid enabling globally to prevent breaking system module imports (UIKit/Foundation).
+
+linkage = ENV['USE_FRAMEWORKS']
+if linkage
+  Pod::UI.puts "Configuring Pod with #{linkage}ally linked Frameworks".green
+  use_frameworks! :linkage => linkage.to_sym
+end
+
+target 'Redidial' do
+  config = use_native_modules!
+
+  # Force GoogleUtilities to generate module maps so Swift can import it
+  pod 'GoogleUtilities', :modular_headers => true
+  # Ensure Firebase pods expose headers for Swift bridging (no Swift import needed)
+  pod 'FirebaseCore', :modular_headers => true
+  pod 'FirebaseCoreExtension', :modular_headers => true
+  pod 'FirebaseCoreInternal', :modular_headers => true
+  pod 'FirebaseMessaging', :modular_headers => true
+  pod 'FirebaseInstallations', :modular_headers => true
+
+  use_react_native!(
+    :path => config[:reactNativePath],
+    # An absolute path to your application root.
+    :app_path => "#{Pod::Config.instance.installation_root}/.."
+  )
+
+  post_install do |installer|
+    react_native_post_install(
+      installer,
+      config[:reactNativePath],
+      :mac_catalyst_enabled => false
+      # :ccache_enabled => true
+    )
+
+    # Ensure Clang modules are enabled for all Pods to fix UIKit import errors
+    installer.pods_project.targets.each do |target|
+      target.build_configurations.each do |config|
+        config.build_settings['CLANG_ENABLE_MODULES'] = 'YES'
+      end
+    end
+  end
+end

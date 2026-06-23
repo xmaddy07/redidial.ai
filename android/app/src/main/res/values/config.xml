@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- RN Firebase owns FCM; Twilio call invites are forwarded from JS via Voice.handleFirebaseMessage -->
+    <bool name="twiliovoicereactnative_firebasemessagingservice_enabled">false</bool>
+</resources>
